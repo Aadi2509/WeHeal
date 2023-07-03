@@ -1,0 +1,48 @@
+.tips{
+    margin: 50px 300px;
+    .prompt-div{
+        display: flex;
+        justify-content: center;
+        .label{
+            text-align: center;
+            margin: 20px auto;
+            label{
+                font-size: 20px;
+                font-weight: 600;
+            }
+        }
+
+        .input-prompt{
+            margin: 20px auto;
+            input{
+                width: 500px;
+                margin: 10px 0px;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-family: 'Poppins', sans-serif;
+                font-size: 14px;
+            }
+        }
+
+        .submit-btn{
+            display: flex;
+            justify-content: center;
+            .btn{
+                margin: 20px auto;
+                width: 100px;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                border: none;
+                border-radius: 5px;
+                background-color: #7750C9;
+                color: #fff;
+                font-size: 16px;
+                font-family: 'Poppins', sans-serif;
+            }
+        }
+    }
+}

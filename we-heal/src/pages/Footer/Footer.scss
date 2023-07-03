@@ -1,0 +1,34 @@
+.footer{
+    margin: 100px 200px 20px 200px;
+    .layer{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 50px;
+
+        .left{
+            display: flex;
+            align-items: center;
+            .logo{
+                color: #777;
+                font-size: 24px;
+            }
+
+            .copyright{
+                color: #777;
+                margin-left: 20px;
+                font-size: 16px;
+            }
+        }
+
+        .right{
+            .icons{
+                display: flex;
+                font-size: 20px;
+                color: #777;
+                gap: 25px;
+                cursor: pointer;
+            }
+        }
+    }
+}

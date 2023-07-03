@@ -1,0 +1,63 @@
+.card{
+    width: 800px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: #F0F0F0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    
+    &:hover{
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        transition: 0.5s ease-in-out;
+    }
+
+    .left{
+        margin: 20px 20px;
+        display: flex;
+        flex-direction: column;
+        .name{
+            font-weight: 600;
+        }
+        .details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            font-size: 14px;
+            .test{
+                color: #7750C9;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .right{
+        margin: 20px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 6rem;
+        .status{
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+        .btn{
+            margin-top: 20px;
+            width: 100px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #7750C9;
+            color: white;
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+        }
+    }
+}
