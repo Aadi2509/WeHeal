@@ -23,6 +23,9 @@ const userControls= require(__dirname+"/controllers/userController.js");
 const testControls= require(__dirname+"/controllers/testController.js");
 
 //using controller and setting routes
+app.get("/",function(req,res){
+    res.send("working");
+})
 app.use("/register", userControls);
 app.use("/bookTest", testControls);
 
