@@ -12,17 +12,21 @@ router.post("/", async (req, res) => {
 
   if (!username || !email || !password) {
     return res.json({ message: "something is missing" });
+  } 
+  
+  try {
+    const userExist = await User.findOne({ email: email });
+
+    if (userExist) {
+      res.json({ message: "already Exist" });
+    }
+
+    const user = new User({ username, email, password });
+
+    await user.save();
+  } catch (err) {
+    console.log(err);
   }
-
-  const userExist = await User.findOne({ email: email });
-
-  if (userExist) {
-    res.json({ message: "already Exist" });
-  }
-
-  const user = new User({ username, email, password });
-
-  await user.save();
 });
 
 module.exports = router;
