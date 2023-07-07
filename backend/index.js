@@ -27,7 +27,7 @@ app.get("/",function(req,res){
     res.send("working");
 })
 app.use("/register", userControls);
-app.use("/bookTest", testControls);
+app.use("/", testControls);
 
 
 //Server Listing at

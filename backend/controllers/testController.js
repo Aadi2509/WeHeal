@@ -4,7 +4,7 @@ const { User } = require("../model/userSchema");
 const { Test } = require("../model/testSchema");
 
 //settings routes for test controller
-router.get("/:userId", async (req, res) => {
+router.get("/:userId/yourTests", async (req, res) => {
   const userId = req.params.userId;
   const foundUser = await User.findOne({ _id: userId }).populate(
     "testsForThisUser"
@@ -12,7 +12,7 @@ router.get("/:userId", async (req, res) => {
   return res.json(foundUser);
 });
 
-router.post("/:userId", async (req, res) => {
+router.post("/:userId/bookTest", async (req, res) => {
   const { name, age, gender, phoneNumber, address, date, service, tests } =
     req.body;
   const userId = req.params.userId;
