@@ -1,7 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../App";
 
 const Logout = () => {
+    const {state,dispatch} = useContext(UserContext);
+
   const navigate = useNavigate();
   const callLogOutPage = async () => {
     try {
@@ -15,7 +18,8 @@ const Logout = () => {
       });
 
       if (res) {
-        navigate("/login", { require: true });
+        dispatch({type:'USER',payload:false});
+        navigate("/", { require: true });
         if(res.status !== 200){
             throw new Error(res.error);
         }

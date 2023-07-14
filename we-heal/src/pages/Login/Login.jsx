@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../../App";
+
 
 const Login = () => {
+  const {state, dispatch} = useContext(UserContext);
   const navigate = useNavigate();
   const [user, setUser] = useState({
     email: "",
@@ -42,6 +45,7 @@ const Login = () => {
       navigate("/signup");
     } else {
       console.log("reached here");
+      dispatch({type:'USER',payload:true});
       window.alert("Log in Successful");
       navigate("/");
     }
