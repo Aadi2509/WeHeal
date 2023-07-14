@@ -3,24 +3,24 @@ const router = express.Router();
 const { User } = require("../model/userSchema");
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
+const cookieParser = require("cookie-parser")
+
+router.use(cookieParser());
 
 //settings routes for user controller
-router.get("/signup", function (req, res) {
-  res.send("user Controller Working");
-});
 
 router.post("/signup", async (req, res) => {
   const { username, email, password } = req.body;
 
   if (!username || !email || !password) {
-    return res.json({ message: "something is missing" });
+    return res.status(400).json({ message: "something is missing" });
   }
 
   try {
     const userExist = await User.findOne({ email: email });
 
     if (userExist) {
-      res.json({ message: "already Exist" });
+      return res.status(400).json({ message: "already Exist" });
     }
 
     const user = new User({ username, email, password });
@@ -35,7 +35,7 @@ router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   if(!email || !password) {
-    res.json({ error: "fill all the credentials" });
+    return res.status(400).json({ error: "fill all the credentials" });
   }
   try {
     let token;
@@ -45,18 +45,21 @@ router.post("/login", async (req, res) => {
 
       token = await userLogin.generateAuthToken();
      
-      res.cookie("myCookie", token ,{
+      console.log("reached here");
+      res.cookie("jwtoken", token ,{
         expires: new Date(Date.now() + 25892000000),
         httpOnly:true
       });
       
       if (isMatch) {
         console.log("Login succesfull");
+        return res.json({message:"success"});
       } else {
         console.log("Invalid Credientials");
+        return res.status(400).json({message:"Invalid Credientials"});
       }
     } else {
-      console.log("Invalid Credientials");
+      return res.status(401).json({message:"Invalid Credientials"});
     }
   } catch (err) {
     console.log(err);

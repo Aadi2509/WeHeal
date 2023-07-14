@@ -1,10 +1,10 @@
 import React from "react";
 import "./Navbar.scss";
 import { Link } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
+//import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  //const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
   return (
     <div className="navbar">
@@ -34,12 +34,12 @@ const Navbar = () => {
           </div>
         </div>
         <div className="right">
-          <div className="item">
+          {/* <div className="item">
             {isAuthenticated ? (
               <Link className="link" to="/tests">
                 My Tests
-              </Link> // Render the Tests link if the user is authenticated
-            ) : (
+              </Link> // Render the Tests link if the user is authenticated */}
+            {/* ) : (
               <button
                 className="test-check"
                 onClick={() => loginWithRedirect()}
@@ -47,10 +47,10 @@ const Navbar = () => {
                 Tests
               </button> // Redirect to the login page if the user is not authenticated
             )}
-          </div>
-          <div className="item">
+          </div> */}
+          {/* <div className="item"> */}
             {/* Render login or logout button based on authentication state */}
-            {isAuthenticated ? (
+            {/* {isAuthenticated ? (
               <button className="nav-btn" onClick={() => logout()}>
                 Logout
               </button>
@@ -59,9 +59,15 @@ const Navbar = () => {
                 Login
               </button>
             )}
+          </div> */}
+          <div className="item">
+            <Link to='/tests'>My Tests</Link>
           </div>
           <div className="item">
             <Link className="link" to='/signup'><button className="nav-btn">SignUp</button></Link>
+          </div>
+          <div className="item">
+            <Link className="link" to='/login'><button className="nav-btn">Login</button></Link>
           </div>
         </div>
       </div>
