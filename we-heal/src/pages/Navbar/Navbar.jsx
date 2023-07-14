@@ -61,13 +61,16 @@ const Navbar = () => {
             )}
           </div> */}
           <div className="item">
-            <Link to='/tests'>My Tests</Link>
+            <Link className="link" to='/tests'>My Tests</Link>
           </div>
           <div className="item">
             <Link className="link" to='/signup'><button className="nav-btn">SignUp</button></Link>
           </div>
           <div className="item">
             <Link className="link" to='/login'><button className="nav-btn">Login</button></Link>
+          </div>
+          <div className="item">
+            <Link className="link" to='/logout'>Log Out</Link>
           </div>
         </div>
       </div>

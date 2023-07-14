@@ -8,7 +8,7 @@ const Tests = () => {
   const navigate = useNavigate();
   const checkToCallTestsPage = async () => {
     try {
-      const res = fetch("http://localhost:8000/myTests", {
+      const res =await fetch("http://localhost:8000/myTests", {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -16,10 +16,10 @@ const Tests = () => {
         },
         credentials: "include",
       });
-
-      const data = (await res).status;
+      const data =  res.json();
+      const status = res.status;
       
-      if(data === 400){
+      if(status === 400){
         navigate("/login");
       }
     } catch (err) {

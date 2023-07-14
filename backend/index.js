@@ -31,6 +31,7 @@ const corsOptions ={
 const userControls= require(__dirname+"/controllers/userController.js");
 const testControls= require(__dirname+"/controllers/testController.js");
 const authenticationControls = require(__dirname + "/controllers/authenticationController.js");
+const logoutControls = require(__dirname + "/controllers/logoutController.js");
 
 //using controller and setting routes
 app.get("/",function(req,res){
@@ -39,7 +40,7 @@ app.get("/",function(req,res){
 app.use("/register", userControls);
 app.use("/", testControls);
 app.use("/", authenticationControls);
-
+app.use("/",logoutControls);
 
 //Server Listing at
 app.listen(8000, function(){

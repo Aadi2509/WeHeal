@@ -8,6 +8,7 @@ import Tests from './pages/Tests/Tests';
 import Tips from './pages/Tips/Tips';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
+import Logout from './pages/Logout/Logout';
 
 import {
   createBrowserRouter,
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: '/signup',
         element: <Signup/>
+      },
+      {
+        path: '/logout',
+        element: <Logout/>
       }
     ]
   }
