@@ -31,7 +31,7 @@ const Signup = () => {
     });
 
     const data =res.json();
-    if(data.status === 400 || !data){
+    if(res.status === 400 || !data){
       window.alert("Invalid Registration");
     }else{
       window.alert("Registered");
